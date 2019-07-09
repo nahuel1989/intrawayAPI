@@ -2,8 +2,6 @@ package com.intraway.testAPI.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.*;
 import java.util.stream.Collectors;
@@ -16,9 +14,6 @@ public class OperationData {
     }
 
     public OperationData(Integer min, Integer max) {
-        if (max < min) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Los parámetros enviados son incorrectos");
-        }
         this.min = min;
         this.max = max;
         this.timestamp = System.currentTimeMillis();
